@@ -1,6 +1,10 @@
+import { setSettings } from "../data/dataManager.js";
+
 const numPlayers = document.querySelector('#num_players')
 const playersDetails = document.querySelector('.players-details')
 const finishDetailsBtn = document.querySelector('.finish-details-btn')
+const gameTheme = document.querySelector('#game-theme')
+const gameDifficulty = document.querySelector('#game-difficulty')
 
 
 const createPlayersDetailsForm = () => {
@@ -43,6 +47,23 @@ const submitGameSettings = () => {
     if(!validateForm()){
         return
     }
+
+    const playersNames = [];
+    document.querySelectorAll('.player_name_inp').forEach(input => {
+        playersNames.push(input.value);
+    });
+    
+    const playersColors = [];
+    document.querySelectorAll('.player_color_inp').forEach(input => {
+        playersColors.push(input.value);
+    });
+    setSettings({
+        numPlayers: numPlayers.value,
+        playerNames: playersNames,
+        playerColors: playersColors,
+        theme: gameTheme.value,
+        difficulty:  gameDifficulty.value
+    })
     window.location.href = '../game/game.html';
 }
 

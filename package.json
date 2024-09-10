@@ -1,0 +1,14 @@
+{
+    "name": "memory-game",
+    "version": "1.0.0",
+    "description": "A memory game project with HTML, CSS, and JavaScript.",
+    "scripts": {
+      "start": "live-server"
+    },
+    "author": "Tehila Hoizman",
+    "license": "MIT",
+    "devDependencies": {
+      "live-server": "^1.2.1"
+    }
+  }
+  
