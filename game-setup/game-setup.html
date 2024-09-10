@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+</head>
+
+<body>
+    <div class="setup-form">
+        <label class="setup-lbl" for="num_players">
+            Insert number of players:
+            <input class="setup-inp" min="1" max="3" value="1" type="number" name="num_players" id="num_players">
+        </label>
+        <div class="players-details">
+
+        </div>
+        <label for="game-theme" class="setup-lbl">
+            Choose game theme:
+            <select name="game-theme" id="game-theme" class="setup-select">
+                <option value="animals" class="setup-opt">Animals</option>
+                <option value="landscapes" class="setup-opt">Landscapes</option>
+                <option value="food" class="setup-opt">Food</option>
+            </select>
+        </label>
+        <label for="game-level" class="setup-lbl">
+            Choose game level:
+            <select name="game-level" id="game-level" class="setup-select">
+                <option value="1" class="setup-opt">Easy</option>
+                <option value="2" class="setup-opt">Medium</option>
+                <option value="3" class="setup-opt">Hard</option>
+            </select>
+        </label>
+        <button class="finish-details-btn">Finish Setup</button>
+        <script src="game-setup.js"></script>
+    </div>
+</body>
+
+</html>
