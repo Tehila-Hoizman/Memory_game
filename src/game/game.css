@@ -1,23 +1,76 @@
 /* styles.css */
 
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('../../assets/images/bg.jpg'); /* תמונת רקע צבעונית */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* כותרת עמוד המשחק */
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #ffeb3b; /* צבע כותרת */
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #ff5722; /* צבע שמו של השחקן הנוכחי */
+}
+
+/* לוח המשחק */
+.game-board {
+    text-align: center;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7); /* רקע כהה עם שקיפות */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* עיצוב הכרטיסים */
 .card {
     width: 100px;
     height: 100px;
-    background-color: blue; /* רקע כחול בברירת המחדל */
+    background: linear-gradient(45deg, #ff5722, #ff9800); /* צבעים חמים עם מעבר */
     background-size: cover;
     background-position: center;
     border: 1px solid #000;
     cursor: pointer;
-    transition: background-color 0.3s, background-image 0.3s;
-    display: inline-block; /* לסידור כרטיסים בשורה */
-    margin: 5px; /* רווח בין הכרטיסים */
+    transition: background-color 0.3s, background-image 0.3s, transform 0.3s;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 8px;
 }
 
 .card.flipped {
     background-color: transparent; /* הסתר את הרקע הכחול כשכרטיס התהפך */
+    background-image: none; /* הסרת התמונה ברקע */
 }
 
 .card.matched {
-    pointer-events: none; /* מנע לחיצות על כרטיסים תואמים */
+    pointer-events: none;
     display: none;
+}
+
+/* הוספת אנימציה לכרטיסים */
+.card {
+    transform: scale(1);
+}
+
+.card:hover {
+    transform: scale(1.05);
 }

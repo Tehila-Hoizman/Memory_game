@@ -1,0 +1,65 @@
+/* styles.css */
+
+/* בסיס */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('/assets/images/bg.jpg'); /* תמונת רקע צבעונית */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* מיכל מרכזי */
+.container {
+    text-align: center;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7); /* רקע כהה עם שקיפות */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+/* כותרת */
+header h1 {
+    font-size: 3rem;
+    color: #ffeb3b; /* צהוב עז */
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.5rem;
+    color: #e0e0e0; /* צבע אפור בהיר */
+    margin-bottom: 20px;
+}
+
+/* כפתור התחלה */
+.start-btn {
+    font-size: 1.8rem;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff5722, #ff9800); /* צבעים חמים עם מעבר */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* רווחים בתחתית */
+footer p {
+    font-size: 1rem;
+    color: #b0bec5; /* צבע אפור בהיר */
+    margin-top: 20px;
+}
+
+

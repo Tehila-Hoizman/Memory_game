@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('/assets/images/bg.jpg'); /* תמונת רקע צבעונית */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* מיכל מרכזי */
+.setup-form {
+    text-align: center;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.7); /* רקע כהה עם שקיפות */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+
+/* כותרת */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #ffeb3b; /* צבע כותרת */
+}
+
+header p {
+    font-size: 1.1em;
+    color: #959292;
+}
+
+/* תוויות וכניסות */
+.setup-lbl {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #959292;
+}
+
+.setup-inp, .setup-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    background-color:  #363434;
+    color: white;
+}
+
+/* עיצוב לבחירת נושא ורמת קושי */
+.setup-select {
+    cursor: pointer;
+    background-color: #363434;
+    color: white;
+}
+
+.setup-opt {
+    color: white;
+}
+
+/* פרטי השחקן */
+.player_detail {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+}
+
+/* תוויות פרטי השחקן */
+.player_name_lbl, .player_color_lbl {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* כפתור שליחה */
+.finish-details-btn {
+    font-size: 1.8rem;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff5722, #ff9800); /* צבעים חמים עם מעבר */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.finish-details-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.finish-details-btn:active {
+    background-color: #388e3c;
+}
+
+.player_details{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color:  #363434;
+    margin: 20px 0px 20px 0px;
+}
+
+.player_details .setup-inp{
+    width: 26%;
+    padding: 10px;
+
+}
+
+.player_color_inp{
+    /* display: inline-block; */
+}
