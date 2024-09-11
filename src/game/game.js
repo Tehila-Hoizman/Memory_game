@@ -3,14 +3,19 @@ import { getCardsUrls, getNumOfPairs, getSettings } from "../data/dataManager.js
 const settings = getSettings();
 console.log(settings);
 const gameBoard = document.querySelector('.game-board');
-const playerName = document.querySelector('.player-name');
+const scoresList = document.querySelector('.scores-list');
+const currentPlayerElement = document.querySelector('.current-player');
+const timerElement = document.querySelector('.timer');
+
 let numPlayers = settings.numPlayers;
 let currentPlayer = settings.playerNames[0];
 let turnIndex = 1;
 let cardsUrls = getCardsUrls(settings.theme);
 let numOfPairs = getNumOfPairs(settings.difficulty);
 let scores = {};
-let gameLocked = false; // מצב לנעילת המשחק
+let gameLocked = false;
+let timer;
+let elapsedTime = 0;
 
 const generatePairsUrls = () => {
     const selectedImages = [];
@@ -63,6 +68,7 @@ const flipCard = (card) => {
                 secondCard.classList.add('matched');
                 scores[currentPlayer]++;
                 numOfPairs--;
+                updateScores();
                 if (numOfPairs == 0) {
                     finishGame();
                     return;
@@ -79,47 +85,66 @@ const flipCard = (card) => {
     }
 };
 
+const updateScores = () => {
+    scoresList.innerHTML = ''; // ניקוי הרשימה הנוכחית
+    settings.playerNames.forEach(player => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${player}: ${scores[player]}`;
+        scoresList.appendChild(listItem);
+    });
+    updateCurrentPlayerDisplay();
+};
+
+const updateCurrentPlayerDisplay = () => {
+    currentPlayerElement.textContent = `Current Player: ${currentPlayer}`;
+    currentPlayerElement.style.color = settings.playerColors[settings.playerNames.indexOf(currentPlayer)];
+};
+
 const nextTurn = () => {
     turnIndex++;
     currentPlayer = settings.playerNames[turnIndex % numPlayers];
-    playerName.textContent = currentPlayer;
-    playerName.style.color = settings.playerColors[turnIndex % numPlayers];
+    updateScores();
     console.log(turnIndex);
     console.log(currentPlayer);
 };
 
 const initGame = () => {
-    playerName.textContent = currentPlayer;
-    playerName.style.color = settings.playerColors[0];
     settings.playerNames.forEach(player => {
         scores[player] = 0;
     });
 
+    updateScores();
     createCards();
+    startTimer();
 };
 
 // פונקציה למציאת השם עם הניקוד הגבוה ביותר
 const getTopScorer = (scores) => {
-    // המרת האובייקט למערך של זוגות [שם, ניקוד]
     const entries = Object.entries(scores);
-
-    // שימוש ב-reduce למציאת הערך המרבי
     const topScorer = entries.reduce((highest, current) => {
-        // highest הוא הזוג עם הניקוד הגבוה ביותר עד כה
-        // current הוא הזוג הנוכחי
         if (current[1] > highest[1]) {
-            return current; // אם הניקוד הנוכחי גבוה יותר, עדכן את התוצאה
+            return current;
         }
-        return highest; // אחרת, שמור את התוצאה הקודמת
+        return highest;
     });
-
-    return topScorer[0]; // מחזיר את השם של המשתמש עם הניקוד הגבוה ביותר
+    return topScorer[0];
 };
 
 const finishGame = () => {
-    // קריאה לפונקציה
+    stopTimer();
     const topScorer = getTopScorer(scores);
     alert(`The top scorer is: ${topScorer}`); // Output: The top scorer is: Diana
+};
+
+const startTimer = () => {
+    timer = setInterval(() => {
+        elapsedTime++;
+        timerElement.textContent = `Time: ${elapsedTime}s`;
+    }, 1000);
+};
+
+const stopTimer = () => {
+    clearInterval(timer);
 };
 
 initGame();

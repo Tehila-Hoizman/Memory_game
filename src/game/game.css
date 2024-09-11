@@ -9,10 +9,64 @@ body {
     background-position: center;
     color: #fff;
     display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* מיכל המשחק כולו */
+.game-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* סרגל נתונים */
+.sidebar {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* כותרת סרגל נתונים */
+.sidebar h2 {
+    color: #ffeb3b;
+    margin-bottom: 20px;
+}
+
+/* רשימת ניקוד */
+.scores-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.scores-list li {
+    margin-bottom: 10px;
+}
+
+/* כותרת שם השחקן הנוכחי */
+.current-player {
+    color: #ff5722;
+    margin-top: 20px;
+}
+
+/* טיימר */
+.timer {
+    margin-top: 20px;
+}
+
+/* תוכן המשחק */
+.game-content {
+    flex: 1;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 /* כותרת עמוד המשחק */
@@ -73,4 +127,12 @@ h2 {
 
 .card:hover {
     transform: scale(1.05);
+}
+
+/* styles.css */
+
+/* כותרת שם השחקן הנוכחי */
+.current-player {
+    margin-top: 20px;
+    font-size: 1.5rem;
 }
